@@ -10,7 +10,7 @@
 
 <br />
 
-<span align="center">
+<p align="center">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
 
   <a href="https://www.linkedin.com/in/douglas-tesch-00b7a518b/">
