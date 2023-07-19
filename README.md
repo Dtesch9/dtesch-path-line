@@ -32,4 +32,4 @@
 yarn && yarn dev
 ```
 
-![Preview](https://github.com/Dtesch9/bracket-experiment/blob/main/preview-dtesch-pathline.png)
+![Preview](https://github.com/Dtesch9/dtesch-path-line/blob/main/preview-dtesch-path-line.png)
