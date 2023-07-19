@@ -5,7 +5,9 @@
     <h2>DteschPathLine</h2>
   </a>
 
-  <h3>By Douglas Tesch</h3>
+  <a href="https://github.com/Dtesch9">
+    <h3>By Douglas Tesch</h3>
+  </a>
 </div>
 
 <br />
@@ -25,6 +27,11 @@
     <img alt="Members" src="https://img.shields.io/github/forks/Dtesch9/dtesch-path-line?style=social">
   </a>
 </span>
+
+## About the Project
+
+This lib intent to make it simple to link two components with a path line.
+Similar to: [react-xarrows](https://github.com/Eliav2/react-xarrows) and [react-archer](https://github.com/pierpo/react-archer) but with a simplier API.
 
 # Run
 
