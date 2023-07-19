@@ -1,12 +1,12 @@
 <br />
 
 <div align="center">
-  <a href="https://github.com/Dtesch9/dtesch-path-line">
-    <h2>DteschPathLine</h2>
-  </a>
+  <h2>
+    DteschPathLine
+  </h2>
 
-  <a href="https://github.com/Dtesch9">
-    <h3>By Douglas Tesch</h3>
+  <a href="https://www.linkedin.com/in/douglas-tesch-00b7a518b/">
+    By Douglas Tesch
   </a>
 </div>
 
