@@ -33,6 +33,10 @@
 This lib intent to make it simple to link two components with a path line.
 Similar to: [react-xarrows](https://github.com/Eliav2/react-xarrows) and [react-archer](https://github.com/pierpo/react-archer) but with a simplier API.
 
+## Simple usage example
+
+[Brackets](https://github.com/Dtesch9/bracket-experiment)
+
 # Run
 
 ```sh
