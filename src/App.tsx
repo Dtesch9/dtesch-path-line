@@ -1,5 +1,5 @@
-import { Box, Flex, VStack } from '@chakra-ui/react';
-import { DTeschPathLine } from './components/dtesch-line-path';
+import { Box, Flex } from '@chakra-ui/react';
+import { DTeschPathLineWrapper, DTeschPathLine } from './components/dtesch-path-line';
 
 const BoxesSameYAxis = () => {
   const startId = 'same-y-axis-box-one';
@@ -49,13 +49,13 @@ const BoxesDifferentYAxisReverse = () => {
 export const App = () => {
   return (
     <Flex as="main" direction="column" w="full" minH="100vh" p="4" justify="center" align="center">
-      <VStack spacing="14" w="400px">
+      <DTeschPathLineWrapper flexDir="column" gap="14" w="400px">
         <BoxesSameYAxis />
 
         <BoxesDifferentYAxis />
 
         <BoxesDifferentYAxisReverse />
-      </VStack>
+      </DTeschPathLineWrapper>
     </Flex>
   );
 };

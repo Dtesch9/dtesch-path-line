@@ -1,4 +1,5 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState, useCallback } from 'react';
+
 import { getBoxMeasurements, type BoxMeasurements } from './dtesch-path-line.utils';
 
 type UsePathLineMeasurementsParams = {
@@ -6,7 +7,7 @@ type UsePathLineMeasurementsParams = {
   endPointId: string;
 };
 
-export const usePathLineMeasurements = ({ startPointId, endPointId }: UsePathLineMeasurementsParams) => {
+export const usePathLineMeasurements = ({ endPointId, startPointId }: UsePathLineMeasurementsParams) => {
   const [boxMeasurements, setBoxMeasurements] = useState<BoxMeasurements>({
     start: { x: 0, y: 0 },
     end: { x: 0, y: 0 },
@@ -16,17 +17,17 @@ export const usePathLineMeasurements = ({ startPointId, endPointId }: UsePathLin
     containerProps: { top: 0, left: 0, width: 0, height: 0 },
   });
 
-  useLayoutEffect(() => {
-    function updatePoints() {
-      setBoxMeasurements(getBoxMeasurements(startPointId, endPointId));
-    }
+  const updatePoints = useCallback(() => {
+    setBoxMeasurements(getBoxMeasurements(startPointId, endPointId));
+  }, [endPointId, startPointId]);
 
+  useLayoutEffect(() => {
     updatePoints();
 
     window.addEventListener('resize', updatePoints);
 
     return () => window.removeEventListener('resize', updatePoints);
-  }, [endPointId, startPointId]);
+  }, [updatePoints]);
 
   return boxMeasurements;
 };

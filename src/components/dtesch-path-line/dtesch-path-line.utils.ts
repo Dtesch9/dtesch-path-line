@@ -1,5 +1,7 @@
 export const LOOSE_OFFSET = 10;
 
+export const CONTAINER_ID = 'dtesch-path-line-container';
+
 type Coord = { x: number; y: number };
 
 export type LineCoords = { start: Coord; end: Coord };
@@ -19,20 +21,31 @@ export type GetContainerParams = {
   height: number;
 };
 
+export function getContainerElement() {
+  const containerElement = document.getElementById(CONTAINER_ID);
+
+  if (containerElement) return containerElement;
+
+  return document.getElementsByTagName('body')[0];
+}
+
 function getElementCoords(id: string): ElementCoords {
   try {
-    const startElement = document.getElementById(id);
+    const containerElement = getContainerElement();
 
-    if (!startElement) throw new Error('Element not found');
+    const elementRef = containerElement.querySelector(`[id="${id}"]`);
 
-    const scrollY = window.scrollY;
-    const scrollX = window.scrollX;
+    if (!elementRef) throw new Error('Element not found');
 
-    const { left: x, bottom: y, width, height } = startElement.getBoundingClientRect();
+    const { left: containerX, top: containerY } = containerElement.getBoundingClientRect();
+    const { left: elementX, bottom: elementY, width, height } = elementRef.getBoundingClientRect();
 
-    return { x: x + scrollX, y: y + scrollY, width, height };
+    const x = elementX - containerX;
+    const y = elementY - containerY;
+
+    return { x: x, y: y, width, height };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return { x: 0, y: 0, width: 0, height: 0 };
   }
 }

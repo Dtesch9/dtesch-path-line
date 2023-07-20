@@ -1,6 +1,9 @@
+import type { FlexProps } from '@chakra-ui/react';
 import { Flex } from '@chakra-ui/react';
+
 import { PathLine } from '../path-line';
 import { usePathLineMeasurements } from './dtesch-path-line.hooks';
+import { CONTAINER_ID } from './dtesch-path-line.utils';
 
 type DTeschPathLineProps = {
   startPointId: string;
@@ -8,14 +11,14 @@ type DTeschPathLineProps = {
   color?: string;
 };
 
-export const DTeschPathLine = ({ startPointId, endPointId, color = 'red' }: DTeschPathLineProps) => {
+export const DTeschPathLine = ({ color = 'red', endPointId, startPointId }: DTeschPathLineProps) => {
   const boxMeasurements = usePathLineMeasurements({ startPointId, endPointId });
 
   return (
     <Flex
       pos="absolute"
-      top={boxMeasurements.containerProps.top}
-      left={boxMeasurements.containerProps.left}
+      top={`${boxMeasurements.containerProps.top}px`}
+      left={`${boxMeasurements.containerProps.left}px`}
       w={`${boxMeasurements.containerProps.width}px`}
       h={`${boxMeasurements.containerProps.height}px`}
     >
@@ -24,4 +27,8 @@ export const DTeschPathLine = ({ startPointId, endPointId, color = 'red' }: DTes
       </svg>
     </Flex>
   );
+};
+
+export const DTeschPathLineWrapper = (props: FlexProps) => {
+  return <Flex {...props} pos="relative" id={CONTAINER_ID} />;
 };
